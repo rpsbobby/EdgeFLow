@@ -1,0 +1,20 @@
+[project]
+name = "edgeflow-node"
+version = "0.1.0"
+description = "EdgeFlow node for Raspberry Pi"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi",
+    "aiokafka",
+    "prometheus-client",
+    "uvicorn"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+    "mypy",
+    "black",
+    "flake8"
+]
