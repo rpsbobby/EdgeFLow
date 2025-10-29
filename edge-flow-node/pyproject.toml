@@ -1,20 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "edgeflow-node"
 version = "0.1.0"
-description = "EdgeFlow node for Raspberry Pi"
+description = "EdgeFlow edge node for Raspberry Pi and cloud deployments"
 requires-python = ">=3.12"
-dependencies = [
-    "fastapi",
-    "aiokafka",
-    "prometheus-client",
-    "uvicorn"
-]
+dependencies = []
 
 [project.optional-dependencies]
 dev = [
     "pytest",
-    "pytest-asyncio",
-    "mypy",
     "black",
-    "flake8"
+    "flake8",
+    "mypy"
 ]
+
+[tool.pytest.ini_options]
+addopts = "-v"
+testpaths = ["tests"]
