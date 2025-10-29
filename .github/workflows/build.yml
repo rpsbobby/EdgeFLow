@@ -1,9 +1,11 @@
 name: Build & Publish EdgeFlow Node Container
 
 on:
+  workflow_dispatch:
   workflow_run:
     workflows: ["Test EdgeFlow"]
-    types: [completed]
+    types:
+      - completed
 
 permissions:
   contents: read
