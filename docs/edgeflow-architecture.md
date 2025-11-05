@@ -2,6 +2,26 @@
 
 ## **Current Architecture — Phase 1**
 
+```mermaid
+graph TD
+  subgraph PC["PC / Control Plane"]
+    G["GitHub Checker"]
+    K["Kafka Broker"]
+    G -->|Publishes update event| K
+  end
+
+  subgraph Edge["Edge Node - Raspberry Pi"]
+    S["sync-node.service (systemd)"]
+    E["edgeflow-node.service (systemd)"]
+    S -->|systemctl restart| E
+  end
+
+  K -->|edgeflow.deploy topic| S
+
+  style PC fill:#ddeeff,stroke:#336699,stroke-width:1px
+  style Edge fill:#eaffea,stroke:#338833,stroke-width:1px
+```
+
 ### **Components**
 
 | Domain                 | Service                   | Role                                                                               |
